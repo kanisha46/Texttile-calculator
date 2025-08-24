@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Textile Yarn Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Password Gate -->
+  <div id="login-screen" class="card app">
+    <h2>🔒 Enter Password</h2>
+    <div class="field">
+      <label>Password</label>
+      <input type="password" id="password-input" placeholder="Enter password" />
+    </div>
+    <button id="login-btn" class="btn btn-primary">Login</button>
+    <p id="login-message" class="muted"></p>
+  </div>
+
+  <!-- Your App (hidden by default) -->
+  <main id="app-screen" class="page" style="display:none;">
+    <section class="card app">
+      <h1 class="title">Textile Yarn Calculator</h1>
+
+      <!-- WARP -->
+      <section class="block">
+        <h2 class="block-title">Warp Calculation</h2>
+        <div id="warp-container" class="entry-list"></div>
+        <div class="actions">
+          <button id="add-warp" class="btn btn-primary"><span>＋ Add Warp</span></button>
+        </div>
+      </section>
+
+      <!-- WEFT -->
+      <section class="block">
+        <h2 class="block-title">Weft Calculation</h2>
+        <div id="weft-container" class="entry-list"></div>
+        <div class="actions">
+          <button id="add-weft" class="btn btn-primary"><span>＋ Add Weft</span></button>
+        </div>
+      </section>
+
+      <!-- CALCULATE -->
+      <button id="calc" class="btn btn-calc">Calculate</button>
+
+      <!-- RESULTS -->
+      <section id="results" class="results card muted"></section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    // Simple password check
+    const correctPassword = "12345"; // 🔑 change this
+    document.getElementById("login-btn").addEventListener("click", () => {
+      const pass = document.getElementById("password-input").value;
+      if (pass === correctPassword) {
+        document.getElementById("login-screen").style.display = "none";
+        document.getElementById("app-screen").style.display = "flex";
+      } else {
+        document.getElementById("login-message").innerText = "❌ Wrong password!";
+      }
+    });
+  </script>
+</body>
+</html>
