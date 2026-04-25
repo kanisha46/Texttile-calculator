@@ -167,20 +167,23 @@ results.innerHTML = `
   <div class="line"></div>
 
   <div class="line">
-    <strong>Warp Subtotal</strong> — ${warpTotalKg.toFixed(4)} kg 
-    (${warpTotalKg.toFixed(4)} / ${grandTotalKg.toFixed(4)} = ${warpPercent.toFixed(2)}%) 
-    | ₹${warpTotalCost.toFixed(2)}
+    <strong>Warp Subtotal</strong><br>
+    Weight: ${warpTotalKg.toFixed(4)} kg 
+    (${warpTotalKg.toFixed(4)} / ${grandTotalKg.toFixed(4)} = ${warpPercent.toFixed(2)}%)<br>
+    Cost: ₹${warpTotalCost.toFixed(2)}
   </div>
 
   <div class="line">
-    <strong>Weft Subtotal</strong> — ${weftTotalKg.toFixed(4)} kg 
-    (${weftTotalKg.toFixed(4)} / ${grandTotalKg.toFixed(4)} = ${weftPercent.toFixed(2)}%) 
-    | ₹${weftTotalCost.toFixed(2)}
+    <strong>Weft Subtotal</strong><br>
+    Weight: ${weftTotalKg.toFixed(4)} kg 
+    (${weftTotalKg.toFixed(4)} / ${grandTotalKg.toFixed(4)} = ${weftPercent.toFixed(2)}%)<br>
+    Cost: ₹${weftTotalCost.toFixed(2)}
   </div>
 
   <div class="line">
-    <strong>Grand Total</strong> — ${grandTotalKg.toFixed(4)} kg 
-    | ₹${grandTotalCost.toFixed(2)}
+    <strong>Grand Total</strong><br>
+    Weight: ${grandTotalKg.toFixed(4)} kg<br>
+    Cost: ₹${grandTotalCost.toFixed(2)}
   </div>
 `;
   results.classList.add("show");
