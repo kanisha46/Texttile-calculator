@@ -153,7 +153,7 @@ document.getElementById("calc").addEventListener("click", () => {
   });
 
   // Render results
-  //const results = document.getElementById("results");
+const results = document.getElementById("results");
 const grandTotalKg = warpTotalKg + weftTotalKg;
 const grandTotalCost = warpTotalCost + weftTotalCost;
 
