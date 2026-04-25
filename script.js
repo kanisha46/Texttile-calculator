@@ -153,14 +153,35 @@ document.getElementById("calc").addEventListener("click", () => {
   });
 
   // Render results
-  const results = document.getElementById("results");
-  results.innerHTML = `
-    <h3>Results</h3>
-    ${lines.join("") || '<div class="muted">No inputs.</div>'}
-    <div class="line"></div>
-    <div class="line"><strong>Warp Subtotal</strong> — ${warpTotalKg.toFixed(4)} kg | ₹${warpTotalCost.toFixed(2)}</div>
-    <div class="line"><strong>Weft Subtotal</strong> — ${weftTotalKg.toFixed(4)} kg | ₹${weftTotalCost.toFixed(2)}</div>
-    <div class="line"><strong>Grand Total</strong> — ${(warpTotalKg+weftTotalKg).toFixed(4)} kg | ₹${(warpTotalCost+weftTotalCost).toFixed(2)}</div>
-  `;
+  //const results = document.getElementById("results");
+const grandTotalKg = warpTotalKg + weftTotalKg;
+const grandTotalCost = warpTotalCost + weftTotalCost;
+
+// प्रतिशत calculation
+const warpPercent = grandTotalKg ? (warpTotalKg / grandTotalKg) * 100 : 0;
+const weftPercent = grandTotalKg ? (weftTotalKg / grandTotalKg) * 100 : 0;
+
+results.innerHTML = `
+  <h3>Results</h3>
+  ${lines.join("") || '<div class="muted">No inputs.</div>'}
+  <div class="line"></div>
+
+  <div class="line">
+    <strong>Warp Subtotal</strong> — ${warpTotalKg.toFixed(4)} kg 
+    (${warpTotalKg.toFixed(4)} / ${grandTotalKg.toFixed(4)} = ${warpPercent.toFixed(2)}%) 
+    | ₹${warpTotalCost.toFixed(2)}
+  </div>
+
+  <div class="line">
+    <strong>Weft Subtotal</strong> — ${weftTotalKg.toFixed(4)} kg 
+    (${weftTotalKg.toFixed(4)} / ${grandTotalKg.toFixed(4)} = ${weftPercent.toFixed(2)}%) 
+    | ₹${weftTotalCost.toFixed(2)}
+  </div>
+
+  <div class="line">
+    <strong>Grand Total</strong> — ${grandTotalKg.toFixed(4)} kg 
+    | ₹${grandTotalCost.toFixed(2)}
+  </div>
+`;
   results.classList.add("show");
 });
